@@ -1,0 +1,330 @@
+[
+  {
+    "customer_id": "CUS-001",
+    "name": "Ava Thompson",
+    "email": "ava.thompson@example.com",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "ORD-1001",
+        "category": "apparel",
+        "item": "Linen wrap dress",
+        "total": 128.5,
+        "status": "delivered",
+        "ordered_at": "2026-05-20",
+        "delivered_at": "2026-05-25",
+        "final_sale": false,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      },
+      {
+        "order_id": "ORD-1002",
+        "category": "home",
+        "item": "Ceramic table lamp",
+        "total": 89.0,
+        "status": "delivered",
+        "ordered_at": "2026-04-01",
+        "delivered_at": "2026-04-05",
+        "final_sale": false,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-002",
+    "name": "Jordan Lee",
+    "email": "jordan.lee@example.com",
+    "tier": "standard",
+    "orders": [
+      {
+        "order_id": "ORD-1003",
+        "category": "apparel",
+        "item": "Final sale leather jacket",
+        "total": 310.0,
+        "status": "delivered",
+        "ordered_at": "2026-05-28",
+        "delivered_at": "2026-06-01",
+        "final_sale": true,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-003",
+    "name": "Mina Patel",
+    "email": "mina.patel@example.com",
+    "tier": "standard",
+    "orders": [
+      {
+        "order_id": "ORD-1004",
+        "category": "beauty",
+        "item": "Vitamin C serum set",
+        "total": 64.99,
+        "status": "delivered",
+        "ordered_at": "2026-05-15",
+        "delivered_at": "2026-05-19",
+        "final_sale": false,
+        "opened": true,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-004",
+    "name": "Theo Martinez",
+    "email": "theo.martinez@example.com",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "ORD-1005",
+        "category": "home",
+        "item": "Espresso machine",
+        "total": 479.99,
+        "status": "delivered",
+        "ordered_at": "2026-05-18",
+        "delivered_at": "2026-05-23",
+        "final_sale": false,
+        "opened": true,
+        "defective": true,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-005",
+    "name": "Marco Ruiz",
+    "email": "marco.ruiz@example.com",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "ORD-1006",
+        "category": "electronics",
+        "item": "Gaming laptop",
+        "total": 1299.0,
+        "status": "delivered",
+        "ordered_at": "2026-05-30",
+        "delivered_at": "2026-06-03",
+        "final_sale": false,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-006",
+    "name": "Priya Shah",
+    "email": "priya.shah@example.com",
+    "tier": "standard",
+    "orders": [
+      {
+        "order_id": "ORD-1010",
+        "category": "electronics",
+        "item": "Wireless headphones",
+        "total": 179.99,
+        "status": "delivered",
+        "ordered_at": "2026-05-28",
+        "delivered_at": "2026-06-02",
+        "final_sale": false,
+        "opened": true,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-007",
+    "name": "Elliot Chen",
+    "email": "elliot.chen@example.com",
+    "tier": "standard",
+    "orders": [
+      {
+        "order_id": "ORD-1007",
+        "category": "software",
+        "item": "Downloadable design suite",
+        "total": 249.0,
+        "status": "delivered",
+        "ordered_at": "2026-05-05",
+        "delivered_at": "2026-05-05",
+        "final_sale": true,
+        "opened": true,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-008",
+    "name": "Sam Rivera",
+    "email": "sam.rivera@example.com",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "ORD-1008",
+        "category": "outdoor",
+        "item": "Backpacking tent",
+        "total": 220.0,
+        "status": "in_transit",
+        "ordered_at": "2026-06-02",
+        "delivered_at": "2026-06-12",
+        "final_sale": false,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-009",
+    "name": "Nora Hughes",
+    "email": "nora.hughes@example.com",
+    "tier": "standard",
+    "orders": [
+      {
+        "order_id": "ORD-1009",
+        "category": "home",
+        "item": "Cotton bedding bundle",
+        "total": 154.0,
+        "status": "delivered",
+        "ordered_at": "2026-03-15",
+        "delivered_at": "2026-03-20",
+        "final_sale": false,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-010",
+    "name": "Grace Kim",
+    "email": "grace.kim@example.com",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "ORD-1011",
+        "category": "jewelry",
+        "item": "Personalized necklace",
+        "total": 145.0,
+        "status": "delivered",
+        "ordered_at": "2026-05-10",
+        "delivered_at": "2026-05-17",
+        "final_sale": true,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-011",
+    "name": "Noah Brooks",
+    "email": "noah.brooks@example.com",
+    "tier": "standard",
+    "orders": [
+      {
+        "order_id": "ORD-1012",
+        "category": "fitness",
+        "item": "Adjustable dumbbell pair",
+        "total": 399.0,
+        "status": "delivered",
+        "ordered_at": "2026-05-22",
+        "delivered_at": "2026-05-29",
+        "final_sale": false,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": true
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-012",
+    "name": "Lena Ortiz",
+    "email": "lena.ortiz@example.com",
+    "tier": "standard",
+    "orders": [
+      {
+        "order_id": "ORD-1013",
+        "category": "kitchen",
+        "item": "Carbon steel pan",
+        "total": 72.5,
+        "status": "delivered",
+        "ordered_at": "2026-06-01",
+        "delivered_at": "2026-06-05",
+        "final_sale": false,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-013",
+    "name": "Owen Wright",
+    "email": "owen.wright@example.com",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "ORD-1014",
+        "category": "electronics",
+        "item": "Smart thermostat",
+        "total": 199.0,
+        "status": "delivered",
+        "ordered_at": "2026-05-24",
+        "delivered_at": "2026-05-31",
+        "final_sale": false,
+        "opened": true,
+        "defective": true,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-014",
+    "name": "Iris Bennett",
+    "email": "iris.bennett@example.com",
+    "tier": "standard",
+    "orders": [
+      {
+        "order_id": "ORD-1015",
+        "category": "gift_card",
+        "item": "Digital gift card",
+        "total": 100.0,
+        "status": "delivered",
+        "ordered_at": "2026-05-29",
+        "delivered_at": "2026-05-29",
+        "final_sale": true,
+        "opened": true,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  },
+  {
+    "customer_id": "CUS-015",
+    "name": "Caleb Stone",
+    "email": "caleb.stone@example.com",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "ORD-1016",
+        "category": "furniture",
+        "item": "Oak writing desk",
+        "total": 549.0,
+        "status": "delivered",
+        "ordered_at": "2026-05-21",
+        "delivered_at": "2026-05-28",
+        "final_sale": false,
+        "opened": false,
+        "defective": false,
+        "chargeback_open": false
+      }
+    ]
+  }
+]

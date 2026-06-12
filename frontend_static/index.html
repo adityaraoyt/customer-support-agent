@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refund Agent Console</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="chat-pane" aria-label="Customer chat">
+        <header class="topbar">
+          <div>
+            
+            <h1>Refund Agent Console</h1>
+          </div>
+          <div class="status-pill">Policy locked</div>
+        </header>
+
+        <div class="messages" id="messages"></div>
+
+        <form class="composer" id="composer">
+          <textarea id="messageInput" placeholder="Type a refund request..." rows="3"></textarea>
+          <button type="submit" aria-label="Send message" title="Send message">Send</button>
+        </form>
+      </section>
+
+      <aside class="admin-pane" aria-label="Agent trace dashboard">
+        <div class="admin-header">
+          <div>
+            <p class="eyebrow">Admin trace</p>
+            <h2>Reasoning Logs</h2>
+          </div>
+          <button type="button" class="icon-button" id="refreshButton" title="Refresh traces" aria-label="Refresh traces">Refresh</button>
+        </div>
+
+        <div class="trace-list" id="traceList"></div>
+        <div id="traceDetail" class="empty-state">No traces yet. Send a refund request to generate the first run.</div>
+      </aside>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
