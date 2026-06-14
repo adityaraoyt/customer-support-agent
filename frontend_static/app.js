@@ -1,5 +1,6 @@
 let traces = [];
 let selectedTraceId = null;
+const sessionId = crypto.randomUUID();
 
 const messagesEl = document.querySelector("#messages");
 const inputEl = document.querySelector("#messageInput");
@@ -22,7 +23,7 @@ composerEl.addEventListener("submit", async (event) => {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text })
+      body: JSON.stringify({ message: text, session_id: sessionId })
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || "API error");
@@ -91,6 +92,8 @@ function renderTraces() {
       ${metric("Retries", String(trace.retries))}
       ${metric("Token cost", `$${trace.estimated_cost_usd.toFixed(6)}`)}
       ${metric("Tokens", String(trace.estimated_prompt_tokens + trace.estimated_completion_tokens))}
+      ${metric("Provider", trace.llm_provider || "openrouter")}
+      ${metric("Model", trace.llm_model || "unknown")}
     </div>
     <section class="trace-section">
       <h3>Reasoning</h3>

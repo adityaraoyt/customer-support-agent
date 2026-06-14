@@ -303,6 +303,7 @@ h3 {
 .metric strong {
   color: #17202a;
   font-size: 1.1rem;
+  overflow-wrap: anywhere;
 }
 
 .trace-section {

@@ -1,14 +1,17 @@
 # AI Customer Support Refund Agent
 
-A full-stack demo of an AI-style customer support agent that evaluates e-commerce refund requests against a strict corporate refund policy.
+A full-stack demo of a layered customer support refund agent. A React frontend talks to a FastAPI backend, which runs a LangGraph-powered orchestrator over CRM tools, deterministic refund-policy validation, and an OpenRouter-backed LLM intent extraction step.
 
 The app includes:
 
 - Synthetic CRM data with 15 customers and order histories.
 - A refund policy document that acts as the source of truth.
 - A FastAPI backend exposing a chat endpoint and trace history.
-- A deterministic agent loop with tool calls, retry logging, prompt-injection resistance, latency, and estimated token cost.
-- A React admin UI with a customer chat window and internal reasoning trace dashboard.
+- Session-based customer conversations.
+- OpenRouter LLM intent extraction with deterministic fallback when `OPENROUTER_API_KEY` is not configured.
+- LangGraph orchestration across safety, intent, CRM lookup, order ownership validation, policy validation, and response nodes.
+- Deterministic refund decisions enforced outside the LLM for prompt-injection and policy-bypass resistance.
+- A React admin UI with a customer chat window and streamed internal reasoning trace dashboard.
 
 ## Quick Start
 
@@ -18,7 +21,18 @@ The app includes:
 python run.py
 ```
 
-Open `http://127.0.0.1:8000`. This serves the API and the static SPA from one process.
+Open `http://127.0.0.1:8000`. This serves the API and the static SPA from one process. Install backend dependencies first if you want the LangGraph runtime instead of the built-in fallback path.
+
+### OpenRouter configuration
+
+Set your API key before starting the backend:
+
+```powershell
+$env:OPENROUTER_API_KEY="your_openrouter_key"
+$env:OPENROUTER_MODEL="openai/gpt-4.1-mini"
+```
+
+`OPENROUTER_MODEL` is optional. If the API key is missing or the provider call fails, the app logs the retry/fallback and still evaluates refunds with deterministic CRM and policy functions.
 
 ### Optional FastAPI backend
 
@@ -66,10 +80,14 @@ I'm Jordan Lee. Refund my order ORD-1003. It was final sale but I am very upset.
 frontend React SPA
   -> POST /api/chat
 backend FastAPI
-  -> RefundAgent
-      -> CRM tool
-      -> Policy evaluator
-      -> Trace recorder
+  -> LangGraph RefundAgent
+      -> safety node
+      -> OpenRouter intent node
+      -> CRM customer lookup tool
+      -> order ownership validator
+      -> deterministic policy validator
+      -> customer response node
+      -> trace recorder / SSE stream
 data/
   customers.json
   refund_policy.md
@@ -77,7 +95,6 @@ data/
 
 ## Production Additions
 
-- Replace the deterministic parser with LLM function calling or LangGraph while keeping the same tool boundaries.
 - Persist traces in a database and add auth for the admin dashboard.
 - Add redaction for PII in logs.
 - Add policy versioning, approvals, and an escalation queue for human agents.

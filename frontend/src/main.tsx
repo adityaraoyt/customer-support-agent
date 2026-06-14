@@ -29,6 +29,8 @@ type AgentTrace = {
   estimated_prompt_tokens: number;
   estimated_completion_tokens: number;
   estimated_cost_usd: number;
+  llm_provider: string;
+  llm_model: string;
   retries: number;
   decision: Decision;
   tool_calls: ToolCall[];
@@ -60,6 +62,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [traces, setTraces] = useState<AgentTrace[]>([]);
   const [selectedTraceId, setSelectedTraceId] = useState<string | null>(null);
+  const [sessionId] = useState(() => crypto.randomUUID());
 
   const selectedTrace = useMemo(
     () => traces.find((trace) => trace.trace_id === selectedTraceId) ?? traces[0],
@@ -68,6 +71,14 @@ function App() {
 
   useEffect(() => {
     fetchTraces();
+    const events = new EventSource(`${API_BASE}/api/traces/stream`);
+    events.onmessage = (event) => {
+      const trace = JSON.parse(event.data) as AgentTrace;
+      setTraces((current) => [trace, ...current.filter((item) => item.trace_id !== trace.trace_id)].slice(0, 25));
+      setSelectedTraceId((current) => current ?? trace.trace_id);
+    };
+    events.onerror = () => events.close();
+    return () => events.close();
   }, []);
 
   async function fetchTraces() {
@@ -90,7 +101,7 @@ function App() {
       const response = await fetch(`${API_BASE}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text })
+        body: JSON.stringify({ message: text, session_id: sessionId })
       });
       const data = (await response.json()) as ChatResponse;
       setMessages((current) => [
@@ -195,6 +206,8 @@ function App() {
                 label="Tokens"
                 value={`${selectedTrace.estimated_prompt_tokens + selectedTrace.estimated_completion_tokens}`}
               />
+              <Metric icon={<Bot size={17} />} label="Provider" value={selectedTrace.llm_provider} />
+              <Metric icon={<ShieldCheck size={17} />} label="Model" value={selectedTrace.llm_model} />
             </div>
 
             <section className="trace-section">

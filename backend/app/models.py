@@ -42,6 +42,8 @@ class AgentTrace(Serializable):
     estimated_prompt_tokens: int
     estimated_completion_tokens: int
     estimated_cost_usd: float
+    llm_provider: str
+    llm_model: str
     retries: int
     decision: Decision
     tool_calls: list[ToolCall]
@@ -66,5 +68,7 @@ class TraceSummary(Serializable):
     retries: int
     decision: str
     estimated_cost_usd: float
+    llm_provider: str
+    llm_model: str
     tool_calls: list[ToolCall]
     reasoning: list[ReasoningStep]
